@@ -59,6 +59,73 @@ body {
     min-height: 100vh;
 }
 
+/* ============================================
+ LOADING SCREEN
+ ============================================ */
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, var(--pale-blue) 0%, var(--soft-blue) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.loading-clouds {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.loading-cloud {
+    width: 60px;
+    height: 40px;
+    background: var(--white);
+    border-radius: 20px;
+    opacity: 0.6;
+    animation: loadingFloat 2s ease-in-out infinite;
+}
+
+.loading-cloud:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.loading-cloud:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes loadingFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.loading-text {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    color: var(--text-medium);
+    font-style: italic;
+}
+
 /* Initial hidden state for entrance animations */
 .sky-background,
 .cloud,
@@ -216,33 +283,49 @@ body {
     transform: translateY(0);
 }
 
-/* Stagger animations for children */
-.animate-on-scroll.visible .section-title {
-    animation: fadeInDown 0.8s ease-out 0.2s both;
+/* Parallax scroll effect */
+[data-parallax] {
+    will-change: transform;
 }
 
-.animate-on-scroll.visible .event-card,
-.animate-on-scroll.visible .parent-card,
-.animate-on-scroll.visible .godparent-card,
-.animate-on-scroll.visible .gallery-item {
-    animation: fadeInUp 0.6s ease-out both;
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
 }
 
-.animate-on-scroll.visible .event-card:nth-child(1) { animation-delay: 0.3s; }
-.animate-on-scroll.visible .event-card:nth-child(2) { animation-delay: 0.4s; }
-.animate-on-scroll.visible .event-card:nth-child(3) { animation-delay: 0.5s; }
-.animate-on-scroll.visible .event-card:nth-child(4) { animation-delay: 0.6s; }
+/* Performance optimization for animations */
+* {
+    will-change: auto;
+}
 
-.animate-on-scroll.visible .parent-card:nth-child(1) { animation-delay: 0.3s; }
-.animate-on-scroll.visible .parent-card:nth-child(2) { animation-delay: 0.4s; }
-
-.animate-on-scroll.visible .godparent-card:nth-child(1) { animation-delay: 0.3s; }
-.animate-on-scroll.visible .godparent-card:nth-child(2) { animation-delay: 0.4s; }
-
-.animate-on-scroll.visible .gallery-item:nth-child(1) { animation-delay: 0.3s; }
-.animate-on-scroll.visible .gallery-item:nth-child(2) { animation-delay: 0.4s; }
-.animate-on-scroll.visible .gallery-item:nth-child(3) { animation-delay: 0.5s; }
-.animate-on-scroll.visible .gallery-item:nth-child(4) { animation-delay: 0.6s; }
+.animate-on-scroll,
+.section-background,
+.welcome-cloud,
+.christening-cloud,
+.christening-teddy,
+.parents-teddy,
+.godparents-cloud,
+.godparents-teddy,
+.message-cloud,
+.section-title,
+.decorative-line,
+.welcome-line-1,
+.welcome-line-2,
+.welcome-line-3,
+.christening-title,
+.christening-subtitle,
+.event-item,
+.parents-intro,
+.parent-name,
+.parent-ampersand,
+.godparent-card,
+.message-quote,
+.quote-text,
+.closing-text,
+.rsvp-text,
+.contact-info {
+    will-change: transform, opacity;
+}
 
 @keyframes fadeInDown {
     from {
@@ -662,51 +745,8 @@ body {
     color: var(--text-medium);
 }
 
-/* Scroll Indicator */
-.scroll-indicator {
-    position: absolute;
-    bottom: var(--spacing-xl);
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-xs);
-    color: var(--text-light);
-    font-size: 0.85rem;
-    font-family: var(--font-sans);
-    letter-spacing: 1px;
-}
-
-.scroll-indicator.entrance-visible {
-    animation: fadeInUp 1s ease-out forwards;
-}
-
-.scroll-indicator span {
-    opacity: 0.8;
-}
-
-.scroll-arrow {
-    width: 20px;
-    height: 20px;
-    border-right: 2px solid var(--text-light);
-    border-bottom: 2px solid var(--text-light);
-    transform: rotate(45deg);
-    opacity: 0.8;
-}
-
-.scroll-indicator.entrance-visible .scroll-arrow {
-    animation: gentleBounce 2s ease-in-out infinite;
-}
-
-@keyframes gentleBounce {
-    0%, 100% {
-        transform: rotate(45deg) translateY(0);
-    }
-    50% {
-        transform: rotate(45deg) translateY(-8px);
-    }
-}
+/* Scroll Indicator - Removed from HTML but kept for reference */
+/* .scroll-indicator styles removed as scroll indicator is no longer used */
 
 /* Cloud entrance animations */
 .cloud.entrance-visible {
@@ -737,12 +777,40 @@ section {
     position: relative;
     padding: var(--spacing-xxl) var(--spacing-md);
     z-index: 1;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.section-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+    will-change: transform, opacity;
+}
+
+.section-background.visible {
+    opacity: 1;
 }
 
 .section-content {
     max-width: 500px;
     margin: 0 auto;
     text-align: center;
+    z-index: 2;
+    position: relative;
+    padding: 0 var(--spacing-sm);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .section-title {
@@ -752,6 +820,14 @@ section {
     color: var(--text-dark);
     margin-bottom: var(--spacing-lg);
     position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-title.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .section-title::after {
@@ -768,22 +844,96 @@ section {
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--soft-gold), transparent);
     margin: var(--spacing-lg) auto;
+    opacity: 0;
+    transform: scaleX(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.decorative-line.visible {
+    opacity: 1;
+    transform: scaleX(1);
 }
 
 /* ============================================
- INVITATION SECTION
+ WELCOME SECTION
  ============================================ */
 
-.invitation-section {
-    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
+.welcome-section {
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
 }
 
-.invitation-text {
+.welcome-cloud {
+    position: absolute;
+    width: 120px;
+    height: auto;
+    opacity: 0.6;
+}
+
+.welcome-cloud img {
+    width: 100%;
+    height: auto;
+}
+
+.welcome-cloud-1 {
+    top: 10%;
+    left: -10%;
+    transform: translateX(-50px);
+    opacity: 0;
+    transition: opacity 1.5s ease-out;
+}
+
+.welcome-section.visible .welcome-cloud-1 {
+    opacity: 0.6;
+    transform: translateX(0);
+}
+
+.welcome-cloud-2 {
+    bottom: 20%;
+    right: -10%;
+    transform: translateX(50px);
+    opacity: 0;
+    transition: opacity 1.5s ease-out;
+}
+
+.welcome-section.visible .welcome-cloud-2 {
+    opacity: 0.6;
+    transform: translateX(0);
+}
+
+.welcome-message {
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.welcome-line-1,
+.welcome-line-2,
+.welcome-line-3 {
     font-family: var(--font-serif);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     line-height: 1.8;
     color: var(--text-medium);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.welcome-line-1.visible,
+.welcome-line-2.visible,
+.welcome-line-3.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.welcome-line-2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.welcome-line-3 {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--soft-gold);
 }
 
 /* Teddy Decorations */
@@ -827,113 +977,369 @@ section {
 }
 
 /* ============================================
- EVENT SECTION
+ CHRISTENING SECTION
  ============================================ */
 
-.event-section {
-    background: rgba(255, 255, 255, 0.3);
+.christening-section {
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
 }
 
-.event-card {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    background: var(--white);
-    padding: var(--spacing-md);
-    border-radius: var(--radius-md);
-    margin-bottom: var(--spacing-md);
-    box-shadow: var(--shadow-soft);
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.christening-cloud-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
-.event-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(135, 206, 235, 0.4);
+.christening-cloud {
+    position: absolute;
+    width: 150px;
+    height: auto;
+    opacity: 0.5;
 }
 
-.event-icon {
-    font-size: 2rem;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--soft-blue);
-    border-radius: var(--radius-full);
-    flex-shrink: 0;
+.christening-cloud img {
+    width: 100%;
+    height: auto;
 }
 
-.event-info h4 {
+.cloud-left {
+    top: 15%;
+    left: -20%;
+    transform: translateX(-60px) scale(0.8);
+    opacity: 0;
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.christening-section.visible .cloud-left {
+    opacity: 0.5;
+    transform: translateX(0) scale(1);
+}
+
+.cloud-right {
+    top: 25%;
+    right: -20%;
+    transform: translateX(60px) scale(0.8);
+    opacity: 0;
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.christening-section.visible .cloud-right {
+    opacity: 0.5;
+    transform: translateX(0) scale(1);
+}
+
+.christening-teddy {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    width: 100px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.christening-section.visible .christening-teddy {
+    opacity: 0.8;
+    transform: translateY(0);
+}
+
+.christening-teddy img {
+    width: 100%;
+    height: auto;
+}
+
+.heavenly-light {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 2s ease-out;
+}
+
+.christening-section.visible .heavenly-light {
+    opacity: 1;
+}
+
+.christening-title {
     font-family: var(--font-serif);
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-light);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 0.25rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-sm);
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-.event-info p {
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text-dark);
+.christening-title.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.christening-subtitle {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-lg);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.christening-subtitle.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ============================================
- PARENTS SECTION
+ EVENT SECTION (NEW)
  ============================================ */
 
-.parents-section {
-    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+.event-section {
+    background: rgba(255, 255, 255, 0.4);
 }
 
-.parents-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
-}
-
-.parent-card {
+.event-details-card {
     background: var(--white);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl) var(--spacing-lg);
     box-shadow: var(--shadow-soft);
-    text-align: center;
-    transition: transform 0.3s ease;
+    border: 2px solid var(--soft-blue);
 }
 
-.parent-card:hover {
-    transform: scale(1.05);
+.event-item {
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--soft-blue);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.parent-card h4 {
+.event-item:last-child {
+    border-bottom: none;
+}
+
+.event-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.event-label {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: var(--spacing-xs);
+}
+
+.event-value {
     font-family: var(--font-serif);
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--text-dark);
-    margin-bottom: var(--spacing-xs);
-}
-
-.parent-card p {
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-    color: var(--text-light);
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 /* ============================================
- GODPARENTS SECTION
+ PARENTS SECTION (NEW)
+ ============================================ */
+
+.parents-section {
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
+}
+
+.parents-teddy {
+    position: absolute;
+    left: 5%;
+    top: 20%;
+    width: 80px;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.parents-section.visible .parents-teddy {
+    opacity: 0.7;
+    transform: translateX(0);
+}
+
+.parents-teddy img {
+    width: 100%;
+    height: auto;
+}
+
+.parents-intro {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-xl);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.parents-intro.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.parents-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.parent-name {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.parent-name.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.parent-name h3 {
+    font-family: var(--font-script);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.parent-ampersand {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--soft-gold);
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.parent-ampersand.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ============================================
+ GODPARENTS SECTION (NEW)
  ============================================ */
 
 .godparents-section {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.4);
 }
 
-.godparents-grid {
+.godparents-cloud-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.godparents-cloud {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    opacity: 0.4;
+}
+
+.godparents-cloud img {
+    width: 100%;
+    height: auto;
+}
+
+.godparents-cloud.cloud-1 {
+    top: 10%;
+    left: -10%;
+    transform: translateX(-40px);
+    opacity: 0;
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.godparents-section.visible .godparents-cloud.cloud-1 {
+    opacity: 0.4;
+    transform: translateX(0);
+}
+
+.godparents-cloud.cloud-2 {
+    top: 30%;
+    right: -10%;
+    transform: translateX(40px);
+    opacity: 0;
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.godparents-section.visible .godparents-cloud.cloud-2 {
+    opacity: 0.4;
+    transform: translateX(0);
+}
+
+.godparents-cloud.cloud-3 {
+    bottom: 20%;
+    left: 20%;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.godparents-section.visible .godparents-cloud.cloud-3 {
+    opacity: 0.4;
+    transform: translateY(0);
+}
+
+.godparents-teddy {
+    position: absolute;
+    width: 70px;
+    opacity: 0.7;
+}
+
+.godparents-teddy img {
+    width: 100%;
+    height: auto;
+}
+
+.godparents-teddy.teddy-left {
+    left: 5%;
+    top: 40%;
+    transform: translateX(-40px);
+    opacity: 0;
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.godparents-section.visible .godparents-teddy.teddy-left {
+    opacity: 0.7;
+    transform: translateX(0);
+}
+
+.godparents-teddy.teddy-right {
+    right: 5%;
+    top: 50%;
+    transform: translateX(40px);
+    opacity: 0;
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.godparents-section.visible .godparents-teddy.teddy-right {
+    opacity: 0.7;
+    transform: translateX(0);
+}
+
+.godparents-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
@@ -947,12 +1353,23 @@ section {
     box-shadow: var(--shadow-soft);
     text-align: center;
     border: 2px solid var(--soft-blue);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out, border-color 0.3s ease;
+}
+
+.godparent-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 .godparent-card:hover {
-    transform: translateY(-5px);
     border-color: var(--soft-gold);
+}
+
+.godparent-icon {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
 }
 
 .godparent-card h4 {
@@ -972,91 +1389,449 @@ section {
 }
 
 /* ============================================
- GALLERY SECTION
+ MESSAGE SECTION
  ============================================ */
 
-.gallery-section {
-    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+.message-section {
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
 }
 
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
+.message-cloud {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 120px;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 2s ease-out, transform 2s ease-out;
 }
 
-.gallery-item {
-    aspect-ratio: 1;
-    background: var(--white);
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    box-shadow: var(--shadow-soft);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease;
+.message-section.visible .message-cloud {
+    opacity: 0.5;
+    transform: translateX(0);
 }
 
-.gallery-item:hover {
-    transform: scale(1.05);
+.message-cloud img {
+    width: 100%;
+    height: auto;
 }
 
-.gallery-placeholder {
-    background: var(--soft-blue);
-    border: 2px dashed var(--baby-blue);
-}
-
-.gallery-placeholder span {
-    font-size: 2rem;
-    margin-bottom: var(--spacing-xs);
-}
-
-.gallery-placeholder p {
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    color: var(--text-light);
-}
-
-/* ============================================
- CLOSING SECTION
- ============================================ */
-
-.closing-section {
-    background: rgba(255, 255, 255, 0.5);
-    padding-bottom: var(--spacing-xxl);
-}
-
-.closing-message {
+.message-quote {
     background: var(--white);
     padding: var(--spacing-xl) var(--spacing-lg);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-soft);
-    border: 2px solid var(--soft-gold);
+    border-left: 4px solid var(--soft-gold);
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-.closing-text {
+.message-quote.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.quote-mark {
     font-family: var(--font-serif);
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--text-medium);
-    margin-bottom: var(--spacing-lg);
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--soft-gold);
+    line-height: 1;
+    opacity: 0.3;
 }
 
-.rsvp-text {
+.quote-start {
+    position: absolute;
+    top: -20px;
+    left: var(--spacing-md);
+}
+
+.quote-end {
+    position: absolute;
+    bottom: -40px;
+    right: var(--spacing-md);
+}
+
+.quote-text {
     font-family: var(--font-serif);
     font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: var(--spacing-md);
+    line-height: 1.8;
+    color: var(--text-medium);
+    margin: var(--spacing-lg) 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-.contact-info {
+.quote-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+ FINAL SECTION
+ ============================================ */
+
+.final-section {
+    background: linear-gradient(180deg, rgba(240, 248, 255, 0.6) 0%, rgba(135, 206, 235, 0.8) 50%, rgba(176, 224, 230, 0.9) 100%);
+    min-height: 100vh;
+    padding: var(--spacing-xxl) var(--spacing-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.final-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 2s ease-out;
+}
+
+.final-background.visible {
+    opacity: 1;
+}
+
+.final-cloud {
+    position: absolute;
+    width: 140px;
+    height: auto;
+    opacity: 0;
+    transform: translateY(30px) scale(0.8);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.final-cloud img {
+    width: 100%;
+    height: auto;
+}
+
+.final-cloud-1 {
+    top: 10%;
+    left: -10%;
+}
+
+.final-cloud-1.visible {
+    opacity: 0.7;
+    transform: translateY(0) scale(1);
+}
+
+.final-cloud-2 {
+    top: 30%;
+    right: -15%;
+}
+
+.final-cloud-2.visible {
+    opacity: 0.6;
+    transform: translateY(0) scale(1);
+}
+
+.final-cloud-3 {
+    bottom: 20%;
+    left: 20%;
+}
+
+.final-cloud-3.visible {
+    opacity: 0.5;
+    transform: translateY(0) scale(1);
+}
+
+.final-teddy {
+    position: absolute;
+    bottom: 15%;
+    right: 10%;
+    width: 120px;
+    opacity: 0;
+    transform: translateY(50px) scale(0.8);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.final-teddy img {
+    width: 100%;
+    height: auto;
+}
+
+.final-teddy.visible {
+    opacity: 0.9;
+    transform: translateY(0) scale(1);
+}
+
+.final-balloons {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    width: 150px;
+    height: 200px;
+}
+
+.final-balloon {
+    position: absolute;
+    width: 50px;
+    height: 67px;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.final-balloon.visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: finalBalloonFloat 4s ease-in-out infinite;
+    will-change: transform;
+}
+
+.balloon-pink {
+    left: 0;
+    bottom: 0;
+}
+
+.balloon-pink.visible {
+    animation-delay: 0s;
+}
+
+.balloon-blue {
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%) translateY(100px);
+}
+
+.balloon-blue.visible {
+    transform: translateX(-50%) translateY(0);
+    animation-delay: 0.5s;
+    animation-name: finalBalloonFloatCenter;
+}
+
+@keyframes finalBalloonFloatCenter {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-15px);
+    }
+}
+
+.balloon-purple {
+    left: 80%;
+    bottom: 40px;
+}
+
+.balloon-purple.visible {
+    animation-delay: 1s;
+}
+
+@keyframes finalBalloonFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.final-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.final-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--white);
+    border-radius: 50%;
+    opacity: 0;
+    animation: finalParticleRise 5s ease-in infinite;
+}
+
+@keyframes finalParticleRise {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1);
+        opacity: 0;
+    }
+}
+
+.final-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(135, 206, 235, 0.2) 40%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 2s ease-out;
+}
+
+.final-glow.visible {
+    opacity: 1;
+    animation: finalGlowPulse 4s ease-in-out infinite;
+}
+
+@keyframes finalGlowPulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.7;
+    }
+}
+
+.final-message {
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+.final-thank-you {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.3;
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.final-thank-you.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.final-subtitle {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-xl);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.final-subtitle.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.final-baby-name {
+    margin: var(--spacing-xl) 0;
+}
+
+.baby-name-final {
+    font-family: var(--font-script);
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    margin: 0;
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.baby-name-final.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.final-signature {
+    margin-top: var(--spacing-xl);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.final-signature.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.with-love {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--soft-gold);
+    margin-bottom: var(--spacing-xs);
+}
+
+.parents-names {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.final-buttons {
+    margin-top: var(--spacing-xxl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.final-buttons.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.final-btn {
     font-family: var(--font-sans);
     font-size: 1rem;
-    color: var(--text-medium);
-    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--baby-blue) 0%, var(--sky-blue) 100%);
+    border: none;
+    border-radius: var(--radius-full);
+    padding: var(--spacing-md) var(--spacing-xl);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    box-shadow: 0 4px 15px rgba(135, 206, 235, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 200px;
+    min-height: 48px;
+    justify-content: center;
+    touch-action: manipulation;
+}
+
+.final-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(135, 206, 235, 0.5);
+}
+
+.final-btn:active {
+    transform: translateY(0);
+}
+
+.btn-icon {
+    font-size: 1.2rem;
 }
 
 /* ============================================
@@ -1128,6 +1903,32 @@ section {
     }
     
     .heavenly-glow {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .final-thank-you {
+        font-size: 1.5rem;
+    }
+    
+    .baby-name-final {
+        font-size: 2.5rem;
+    }
+    
+    .final-cloud {
+        width: 80px;
+    }
+    
+    .final-teddy {
+        width: 70px;
+    }
+    
+    .final-balloon {
+        width: 35px;
+        height: 47px;
+    }
+    
+    .final-glow {
         width: 300px;
         height: 300px;
     }
@@ -1220,6 +2021,32 @@ section {
     .hero-cloud {
         width: 130px;
     }
+    
+    .final-thank-you {
+        font-size: 2.5rem;
+    }
+    
+    .baby-name-final {
+        font-size: 4.5rem;
+    }
+    
+    .final-cloud {
+        width: 160px;
+    }
+    
+    .final-teddy {
+        width: 140px;
+    }
+    
+    .final-balloon {
+        width: 60px;
+        height: 80px;
+    }
+    
+    .final-glow {
+        width: 600px;
+        height: 600px;
+    }
 }
 
 /* Tablets (768px - 1023px) */
@@ -1282,6 +2109,37 @@ section {
         width: 500px;
         height: 500px;
     }
+    
+    .final-thank-you {
+        font-size: 3rem;
+    }
+    
+    .baby-name-final {
+        font-size: 5.5rem;
+    }
+    
+    .final-cloud {
+        width: 180px;
+    }
+    
+    .final-teddy {
+        width: 160px;
+    }
+    
+    .final-balloon {
+        width: 70px;
+        height: 93px;
+    }
+    
+    .final-glow {
+        width: 700px;
+        height: 700px;
+    }
+    
+    .final-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
 }
 
 /* Desktop (1024px+) */
@@ -1329,6 +2187,37 @@ section {
         width: 600px;
         height: 600px;
     }
+    
+    .final-thank-you {
+        font-size: 3.5rem;
+    }
+    
+    .baby-name-final {
+        font-size: 6rem;
+    }
+    
+    .final-cloud {
+        width: 200px;
+    }
+    
+    .final-teddy {
+        width: 180px;
+    }
+    
+    .final-balloon {
+        width: 80px;
+        height: 107px;
+    }
+    
+    .final-glow {
+        width: 800px;
+        height: 800px;
+    }
+    
+    .final-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
 }
 
 /* Large Desktop (1440px+) */
@@ -1347,6 +2236,32 @@ section {
     
     .hero-cloud {
         width: 180px;
+    }
+    
+    .final-thank-you {
+        font-size: 4rem;
+    }
+    
+    .baby-name-final {
+        font-size: 7rem;
+    }
+    
+    .final-cloud {
+        width: 220px;
+    }
+    
+    .final-teddy {
+        width: 200px;
+    }
+    
+    .final-balloon {
+        width: 90px;
+        height: 120px;
+    }
+    
+    .final-glow {
+        width: 900px;
+        height: 900px;
     }
 }
 
@@ -1381,7 +2296,17 @@ section {
     .hero-teddy,
     .hero-cloud,
     .balloon,
-    .scroll-indicator {
+    .scroll-indicator,
+    .final-background,
+    .final-cloud,
+    .final-teddy,
+    .final-balloon,
+    .final-glow,
+    .final-thank-you,
+    .final-subtitle,
+    .baby-name-final,
+    .final-signature,
+    .final-buttons {
         opacity: 1;
         transform: none;
     }
@@ -1392,6 +2317,22 @@ a:focus,
 button:focus {
     outline: 3px solid var(--soft-gold);
     outline-offset: 2px;
+}
+
+/* Skip to content link for keyboard users */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--soft-gold);
+    color: var(--white);
+    padding: 8px;
+    z-index: 10000;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
 }
 
 /* High Contrast Mode Support */

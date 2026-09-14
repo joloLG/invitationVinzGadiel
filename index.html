@@ -3,42 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christening Invitation</title>
+    <meta name="description" content="Christening Invitation for Vinz Gadiel - Join us for this special celebration of faith and love.">
+    <title>Christening Invitation - Vinz Gadiel</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        // ============================================
+        // CONFIGURATION - EASILY CUSTOMIZE YOUR INVITATION
+        // ============================================
+        const INVITATION_CONFIG = {
+            baby: {
+                firstName: 'Vinz',
+                lastName: 'Gadiel',
+                fullName: 'Vinz Gadiel'
+            },
+            event: {
+                date: 'Monday, October 05, 2026',
+                time: '11:00 AM',
+                church: 'St. Faustino Kowalska Parish',
+                churchAddress: 'Bagumbong Jala Jala Rizal',
+                reception: 'Cruz Residence',
+                receptionAddress: '02 JP Rizal Street, Bagumbong, Jala Jala, Rizal'
+            },
+            parents: {
+                father: 'Vinro Cedrix Gracilla Cuevas ',
+                mother: 'Geneline Escarmoza Cruz'
+            },
+            godparents: {
+                godfather: '[Godfather\'s Name]',
+                godmother: '[Godmother\'s Name]'
+            },
+            contact: {
+                rsvpDate: '[RSVP Date]',
+                phone: '[Phone Number]',
+                email: '[Email Address]'
+            },
+            designer: {
+                name: 'John Lloyd Gracilla'
+            }
+        };
+    </script>
 </head>
 <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen" aria-hidden="true">
+        <div class="loading-content">
+            <div class="loading-clouds">
+                <div class="loading-cloud"></div>
+                <div class="loading-cloud"></div>
+                <div class="loading-cloud"></div>
+            </div>
+            <p class="loading-text">Preparing your invitation...</p>
+        </div>
+    </div>
+
     <!-- Floating Background Elements -->
-    <div class="sky-background">
+    <div class="sky-background" aria-hidden="true">
         <div class="cloud cloud-1" data-parallax="0.2">
-            <img src="cloud1.png" alt="Cloud">
+            <img src="cloud1.png" alt="" role="presentation">
         </div>
         <div class="cloud cloud-2" data-parallax="0.3">
-            <img src="cloud2.png" alt="Cloud">
+            <img src="cloud2.png" alt="" role="presentation">
         </div>
         <div class="cloud cloud-3" data-parallax="0.15">
-            <img src="cloud3.png" alt="Cloud">
+            <img src="cloud3.png" alt="" role="presentation">
         </div>
         <div class="particles"></div>
         <div class="heavenly-glow"></div>
     </div>
 
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero-section" id="main-content">
         <!-- Hero Decorations -->
-        <div class="hero-teddy hero-teddy-left">
-            <img src="teddy1.png" alt="Teddy Bear">
+        <div class="hero-teddy hero-teddy-left" aria-hidden="true">
+            <img src="teddy1.png" alt="" role="presentation">
         </div>
-        <div class="hero-teddy hero-teddy-right">
-            <img src="teddy2.png" alt="Teddy Bear">
+        <div class="hero-teddy hero-teddy-right" aria-hidden="true">
+            <img src="teddy2.png" alt="" role="presentation">
         </div>
-        <div class="hero-cloud hero-cloud-left">
-            <img src="cloud1.png" alt="Cloud">
+        <div class="hero-cloud hero-cloud-left" aria-hidden="true">
+            <img src="cloud1.png" alt="" role="presentation">
         </div>
-        <div class="hero-cloud hero-cloud-right">
-            <img src="cloud2.png" alt="Cloud">
+        <div class="hero-cloud hero-cloud-right" aria-hidden="true">
+            <img src="cloud2.png" alt="" role="presentation">
         </div>
         <div class="balloon balloon-1">
             <svg viewBox="0 0 60 80" class="balloon-svg">
@@ -66,158 +118,233 @@
             <p class="hero-top-text">With Joy in Our Hearts</p>
             <div class="baby-portrait">
                 <div class="portrait-frame">
-                    <img src="baby.png" alt="Baby" class="baby-image">
-                    <div class="portrait-ring"></div>
-                    <div class="portrait-glow"></div>
+                    <img src="baby.png" alt="Portrait of Vinz Gadiel" class="baby-image">
+                    <div class="portrait-ring" aria-hidden="true"></div>
+                    <div class="portrait-glow" aria-hidden="true"></div>
                 </div>
             </div>
             <h2 class="baby-name">Vinz Gadiel</h2>
             <p class="baptism-text">On the occasion of my Holy Baptism</p>
             <div class="hero-date">
-                <p class="date-text">Sunday, January 15, 2026</p>
-                <p class="time-text">at 10:00 AM</p>
+                <p class="date-text">Monday, October 05, 2026</p>
+                <p class="time-text">at 11:00 AM</p>
             </div>
         </div>
        
     </section>
 
-    <!-- Invitation Message -->
-    <section class="invitation-section animate-on-scroll">
-        <div class="teddy-decoration teddy-left">
-            <img src="teddy1.png" alt="Teddy Bear">
+    <!-- Section 1: Welcome -->
+    <section class="welcome-section animate-on-scroll" data-section="welcome">
+        <div class="section-background" aria-hidden="true">
+            <div class="welcome-cloud welcome-cloud-1">
+                <img src="cloud1.png" alt="" role="presentation">
+            </div>
+            <div class="welcome-cloud welcome-cloud-2">
+                <img src="cloud2.png" alt="" role="presentation">
+            </div>
         </div>
         <div class="section-content">
-            <h3 class="section-title">With Joyful Hearts</h3>
-            <p class="invitation-text">
-                We invite you to share in our happiness as we celebrate 
-                the christening of our precious little one. Your presence 
-                would make this special day even more meaningful.
-            </p>
+            <div class="welcome-message">
+                <p class="welcome-line-1">With hearts full of love and gratitude,</p>
+                <p class="welcome-line-2">we invite you to celebrate</p>
+                <p class="welcome-line-3">this very special day with us.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: The Christening -->
+    <section class="christening-section animate-on-scroll" data-section="christening">
+        <div class="section-background" aria-hidden="true">
+            <div class="christening-cloud-layer">
+                <div class="christening-cloud cloud-left">
+                    <img src="cloud1.png" alt="" role="presentation">
+                </div>
+                <div class="christening-cloud cloud-right">
+                    <img src="cloud2.png" alt="" role="presentation">
+                </div>
+            </div>
+            <div class="christening-teddy">
+                <img src="teddy3.png" alt="" role="presentation">
+            </div>
+            <div class="heavenly-light" aria-hidden="true"></div>
+        </div>
+        <div class="section-content">
+            <h2 class="christening-title">The Christening</h2>
+            <p class="christening-subtitle">A sacred celebration of faith and love</p>
             <div class="decorative-line"></div>
         </div>
-        <div class="teddy-decoration teddy-right">
-            <img src="teddy2.png" alt="Teddy Bear">
-        </div>
     </section>
 
-    <!-- Event Details -->
-    <section class="event-section animate-on-scroll">
+    <!-- Section 3: Event Details -->
+    <section class="event-section animate-on-scroll" data-section="event">
         <div class="section-content">
-            <h3 class="section-title">Celebration Details</h3>
+            <h2 class="section-title">Celebration Details</h2>
             
-            <div class="event-card">
-                <div class="event-icon">📅</div>
-                <div class="event-info">
-                    <h4>Date</h4>
-                    <p>Sunday, January 15, 2026</p>
+            <div class="event-details-card">
+                <div class="event-item">
+                    <div class="event-label">DATE</div>
+                    <div class="event-value">Monday, October 05, 2026</div>
                 </div>
-            </div>
-            
-            <div class="event-card">
-                <div class="event-icon">⏰</div>
-                <div class="event-info">
-                    <h4>Time</h4>
-                    <p>10:00 AM</p>
+                
+                <div class="event-item">
+                    <div class="event-label">TIME</div>
+                    <div class="event-value">11:00 AM</div>
                 </div>
-            </div>
-            
-            <div class="event-card">
-                <div class="event-icon">📍</div>
-                <div class="event-info">
-                    <h4>Location</h4>
-                    <p>St. Mary's Church<br>123 Blessing Avenue</p>
+                
+                <div class="event-item">
+                    <div class="event-label">CHURCH</div>
+                    <div class="event-value">St. Faustino Kowalska Parish</div>
                 </div>
-            </div>
-            
-            <div class="event-card">
-                <div class="event-icon">🎉</div>
-                <div class="event-info">
-                    <h4>Reception</h4>
-                    <p>12:00 PM<br>Grand Ballroom</p>
+                
+                <div class="event-item">
+                    <div class="event-label">RECEPTION</div>
+                    <div class="event-value">Cruz Residence</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Parents Section -->
-    <section class="parents-section animate-on-scroll">
-        <div class="teddy-decoration teddy-center">
-            <img src="teddy3.png" alt="Teddy Bear">
+    <!-- Section 4: Parents -->
+    <section class="parents-section animate-on-scroll" data-section="parents">
+        <div class="section-background" aria-hidden="true">
+            <div class="parents-teddy">
+                <img src="teddy1.png" alt="" role="presentation">
+            </div>
         </div>
         <div class="section-content">
-            <h3 class="section-title">Proud Parents</h3>
-            <div class="parents-grid">
-                <div class="parent-card">
-                    <h4>John Smith</h4>
-                    <p>Father</p>
+            <p class="parents-intro">Together with our loving parents</p>
+            <div class="parents-display">
+                <div class="parent-name father-name">
+                    <h3>Vinro Cedrix Gracilla Cuevas</h3>
                 </div>
-                <div class="parent-card">
-                    <h4>Jane Smith</h4>
-                    <p>Mother</p>
+                <div class="parent-ampersand">&</div>
+                <div class="parent-name mother-name">
+                    <h3>Geneline Escarmoza Cruz</h3>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Godparents Section -->
-    <section class="godparents-section animate-on-scroll">
+    <!-- Section 5: Godparents -->
+    <section class="godparents-section animate-on-scroll" data-section="godparents">
+        <div class="section-background" aria-hidden="true">
+            <div class="godparents-cloud-layer">
+                <div class="godparents-cloud cloud-1">
+                    <img src="cloud1.png" alt="" role="presentation">
+                </div>
+                <div class="godparents-cloud cloud-2">
+                    <img src="cloud2.png" alt="" role="presentation">
+                </div>
+                <div class="godparents-cloud cloud-3">
+                    <img src="cloud3.png" alt="" role="presentation">
+                </div>
+            </div>
+            <div class="godparents-teddy teddy-left">
+                <img src="teddy1.png" alt="" role="presentation">
+            </div>
+            <div class="godparents-teddy teddy-right">
+                <img src="teddy2.png" alt="" role="presentation">
+            </div>
+        </div>
         <div class="section-content">
-            <h3 class="section-title">Godparents</h3>
-            <div class="godparents-grid">
+            <h2 class="section-title">Godparents</h2>
+            <div class="godparents-cards">
                 <div class="godparent-card">
-                    <h4>Michael Johnson</h4>
+                    <div class="godparent-icon">✨</div>
+                    <h4>[Godfather's Name]</h4>
                     <p>Godfather</p>
                 </div>
                 <div class="godparent-card">
-                    <h4>Sarah Williams</h4>
+                    <div class="godparent-icon">✨</div>
+                    <h4>[Godmother's Name]</h4>
                     <p>Godmother</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="gallery-section animate-on-scroll">
+    <!-- Section 6: Message -->
+    <section class="message-section animate-on-scroll" data-section="message">
+        <div class="section-background" aria-hidden="true">
+            <div class="message-cloud">
+                <img src="cloud3.png" alt="" role="presentation">
+            </div>
+        </div>
         <div class="section-content">
-            <h3 class="section-title">Precious Moments</h3>
-            <div class="gallery-grid">
-                <div class="gallery-item gallery-placeholder">
-                    <span>📷</span>
-                    <p>Photo 1</p>
-                </div>
-                <div class="gallery-item gallery-placeholder">
-                    <span>📷</span>
-                    <p>Photo 2</p>
-                </div>
-                <div class="gallery-item gallery-placeholder">
-                    <span>📷</span>
-                    <p>Photo 3</p>
-                </div>
-                <div class="gallery-item gallery-placeholder">
-                    <span>📷</span>
-                    <p>Photo 4</p>
-                </div>
+            <div class="message-quote">
+                <div class="quote-mark quote-start">“</div>
+                <p class="quote-text">
+                    May this special day be filled with blessings, joy, and cherished memories 
+                    that will last a lifetime. Thank you for being part of our journey.
+                </p>
+                <div class="quote-mark quote-end">”</div>
             </div>
         </div>
     </section>
 
-    <!-- Closing Section -->
-    <section class="closing-section animate-on-scroll">
-        <div class="section-content">
-            <div class="closing-message">
-                <h3 class="section-title">With Love & Gratitude</h3>
-                <p class="closing-text">
-                    Thank you for being part of our baby's special day. 
-                    Your blessings and warm wishes mean the world to us.
-                </p>
-                <div class="decorative-line"></div>
-                <p class="rsvp-text">RSVP by January 1, 2026</p>
-                <p class="contact-info">📞 (555) 123-4567</p>
-                <p class="contact-info">✉️ smith.family@email.com</p>
+    <!-- Final Section -->
+    <section class="final-section animate-on-scroll" data-section="final">
+        <div class="final-background" aria-hidden="true">
+            <div class="final-cloud final-cloud-1">
+                <img src="cloud1.png" alt="" role="presentation">
             </div>
+            <div class="final-cloud final-cloud-2">
+                <img src="cloud2.png" alt="" role="presentation">
+            </div>
+            <div class="final-cloud final-cloud-3">
+                <img src="cloud3.png" alt="" role="presentation">
+            </div>
+            <div class="final-teddy">
+                <img src="teddy3.png" alt="" role="presentation">
+            </div>
+            <div class="final-balloons">
+                <div class="final-balloon balloon-pink">
+                    <svg viewBox="0 0 60 80" class="balloon-svg">
+                        <ellipse cx="30" cy="30" rx="25" ry="30" fill="#FFB6C1"/>
+                        <path d="M 30 60 L 30 75" stroke="#FFB6C1" stroke-width="2"/>
+                        <polygon points="28,75 32,75 30,80" fill="#FFB6C1"/>
+                    </svg>
+                </div>
+                <div class="final-balloon balloon-blue">
+                    <svg viewBox="0 0 60 80" class="balloon-svg">
+                        <ellipse cx="30" cy="30" rx="25" ry="30" fill="#87CEEB"/>
+                        <path d="M 30 60 L 30 75" stroke="#87CEEB" stroke-width="2"/>
+                        <polygon points="28,75 32,75 30,80" fill="#87CEEB"/>
+                    </svg>
+                </div>
+                <div class="final-balloon balloon-purple">
+                    <svg viewBox="0 0 60 80" class="balloon-svg">
+                        <ellipse cx="30" cy="30" rx="25" ry="30" fill="#E6E6FA"/>
+                        <path d="M 30 60 L 30 75" stroke="#E6E6FA" stroke-width="2"/>
+                        <polygon points="28,75 32,75 30,80" fill="#E6E6FA"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="final-particles" aria-hidden="true"></div>
+            <div class="final-glow" aria-hidden="true"></div>
         </div>
-        <div class="teddy-decoration teddy-bottom">
-            <img src="teddy1.png" alt="Teddy Bear">
+        <div class="section-content">
+            <div class="final-message">
+                <h2 class="final-thank-you">Thank You For Celebrating With Us</h2>
+                <p class="final-subtitle">We can't wait to share this special day with you.</p>
+                <div class="final-baby-name">
+                    <h3 class="baby-name-final">Vinz Gadiel</h3>
+                </div>
+                <div class="final-signature">
+                    <p class="with-love">With Love</p>
+                    <p class="parents-names">[Father's Name] & [Mother's Name]</p>
+                </div>
+                <div class="final-buttons">
+                    <button class="final-btn btn-restart" id="restartBtn" aria-label="View invitation again">
+                        <span class="btn-icon" aria-hidden="true">↺</span>
+                        View Invitation Again
+                    </button>
+                    <button class="final-btn btn-save" id="saveBtn" aria-label="Save this invitation">
+                        <span class="btn-icon" aria-hidden="true">⬇</span>
+                        Save This Invitation
+                    </button>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -228,6 +355,16 @@
     </footer>
 
     <script>
+        // Loading screen functionality
+        window.addEventListener('load', () => {
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen) {
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                }, 800);
+            }
+        });
+
         // Cinematic entrance sequence
         document.addEventListener('DOMContentLoaded', () => {
             // Staggered entrance animations
@@ -244,8 +381,7 @@
                 { selector: '.hero-date', delay: 4.6 },
                 { selector: '.hero-teddy', delay: 5 },
                 { selector: '.hero-cloud', delay: 5.5 },
-                { selector: '.balloon', delay: 6 },
-                { selector: '.scroll-indicator', delay: 6.5 }
+                { selector: '.balloon', delay: 6 }
             ];
 
             entranceSequence.forEach(item => {
@@ -272,14 +408,34 @@
         // Intersection Observer for scroll animations (for sections below hero)
         const observerOptions = {
             root: null,
-            rootMargin: '0px',
-            threshold: 0.1
+            rootMargin: '-10% 0px -10% 0px',
+            threshold: 0.15
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    
+                    // Trigger staggered animations for section children
+                    const section = entry.target;
+                    const sectionType = section.dataset.section;
+                    
+                    if (sectionType === 'welcome') {
+                        animateWelcomeSection(section);
+                    } else if (sectionType === 'christening') {
+                        animateChristeningSection(section);
+                    } else if (sectionType === 'event') {
+                        animateEventSection(section);
+                    } else if (sectionType === 'parents') {
+                        animateParentsSection(section);
+                    } else if (sectionType === 'godparents') {
+                        animateGodparentsSection(section);
+                    } else if (sectionType === 'message') {
+                        animateMessageSection(section);
+                    } else if (sectionType === 'final') {
+                        animateFinalSection(section);
+                    }
                 }
             });
         }, observerOptions);
@@ -288,12 +444,232 @@
             observer.observe(section);
         });
 
-        // Parallax effect for clouds
+        // Section-specific animation functions
+        function animateWelcomeSection(section) {
+            const bg = section.querySelector('.section-background');
+            const line1 = section.querySelector('.welcome-line-1');
+            const line2 = section.querySelector('.welcome-line-2');
+            const line3 = section.querySelector('.welcome-line-3');
+            
+            setTimeout(() => bg?.classList.add('visible'), 0);
+            setTimeout(() => line1?.classList.add('visible'), 200);
+            setTimeout(() => line2?.classList.add('visible'), 400);
+            setTimeout(() => line3?.classList.add('visible'), 600);
+        }
+
+        function animateChristeningSection(section) {
+            const bg = section.querySelector('.section-background');
+            const title = section.querySelector('.christening-title');
+            const subtitle = section.querySelector('.christening-subtitle');
+            const line = section.querySelector('.decorative-line');
+            
+            setTimeout(() => bg?.classList.add('visible'), 0);
+            setTimeout(() => title?.classList.add('visible'), 300);
+            setTimeout(() => subtitle?.classList.add('visible'), 500);
+            setTimeout(() => line?.classList.add('visible'), 700);
+        }
+
+        function animateEventSection(section) {
+            const title = section.querySelector('.section-title');
+            const items = section.querySelectorAll('.event-item');
+            
+            setTimeout(() => title?.classList.add('visible'), 0);
+            items.forEach((item, index) => {
+                setTimeout(() => item?.classList.add('visible'), 200 + (index * 150));
+            });
+        }
+
+        function animateParentsSection(section) {
+            const bg = section.querySelector('.section-background');
+            const intro = section.querySelector('.parents-intro');
+            const father = section.querySelector('.father-name');
+            const ampersand = section.querySelector('.parent-ampersand');
+            const mother = section.querySelector('.mother-name');
+            
+            setTimeout(() => bg?.classList.add('visible'), 0);
+            setTimeout(() => intro?.classList.add('visible'), 200);
+            setTimeout(() => father?.classList.add('visible'), 400);
+            setTimeout(() => ampersand?.classList.add('visible'), 600);
+            setTimeout(() => mother?.classList.add('visible'), 800);
+        }
+
+        function animateGodparentsSection(section) {
+            const bg = section.querySelector('.section-background');
+            const title = section.querySelector('.section-title');
+            const cards = section.querySelectorAll('.godparent-card');
+            
+            setTimeout(() => bg?.classList.add('visible'), 0);
+            setTimeout(() => title?.classList.add('visible'), 300);
+            cards.forEach((card, index) => {
+                setTimeout(() => card?.classList.add('visible'), 500 + (index * 200));
+            });
+        }
+
+        function animateMessageSection(section) {
+            const bg = section.querySelector('.section-background');
+            const quote = section.querySelector('.message-quote');
+            const quoteText = section.querySelector('.quote-text');
+            
+            setTimeout(() => bg?.classList.add('visible'), 0);
+            setTimeout(() => quote?.classList.add('visible'), 300);
+            setTimeout(() => quoteText?.classList.add('visible'), 500);
+        }
+
+        function animateFinalSection(section) {
+            const bg = section.querySelector('.final-background');
+            const clouds = section.querySelectorAll('.final-cloud');
+            const teddy = section.querySelector('.final-teddy');
+            const balloons = section.querySelectorAll('.final-balloon');
+            const glow = section.querySelector('.final-glow');
+            const thankYou = section.querySelector('.final-thank-you');
+            const subtitle = section.querySelector('.final-subtitle');
+            const babyName = section.querySelector('.baby-name-final');
+            const signature = section.querySelector('.final-signature');
+            const buttons = section.querySelector('.final-buttons');
+            
+            // Create final particles
+            const particlesContainer = section.querySelector('.final-particles');
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'final-particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 3 + 's';
+                particle.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Staggered animation sequence
+            setTimeout(() => bg?.classList.add('visible'), 0);
+            setTimeout(() => glow?.classList.add('visible'), 300);
+            setTimeout(() => {
+                clouds.forEach((cloud, index) => {
+                    setTimeout(() => cloud?.classList.add('visible'), index * 200);
+                });
+            }, 500);
+            setTimeout(() => teddy?.classList.add('visible'), 1200);
+            setTimeout(() => thankYou?.classList.add('visible'), 1500);
+            setTimeout(() => subtitle?.classList.add('visible'), 1800);
+            setTimeout(() => babyName?.classList.add('visible'), 2100);
+            setTimeout(() => signature?.classList.add('visible'), 2400);
+            setTimeout(() => {
+                balloons.forEach((balloon, index) => {
+                    setTimeout(() => balloon?.classList.add('visible'), index * 300);
+                });
+            }, 2600);
+            setTimeout(() => buttons?.classList.add('visible'), 3500);
+        }
+
+        // Button functionality
+        document.getElementById('restartBtn')?.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Reset entrance animations by removing classes
+            setTimeout(() => {
+                document.querySelectorAll('.entrance-visible').forEach(el => {
+                    el.classList.remove('entrance-visible');
+                });
+                // Re-trigger entrance sequence
+                const entranceSequence = [
+                    { selector: '.sky-background', delay: 0 },
+                    { selector: '.cloud', delay: 0.5 },
+                    { selector: '.particle', delay: 1 },
+                    { selector: '.heavenly-glow', delay: 1.5 },
+                    { selector: '.portrait-frame', delay: 2 },
+                    { selector: '.baby-image', delay: 2.5 },
+                    { selector: '.baby-name', delay: 3.2 },
+                    { selector: '.hero-top-text', delay: 3.8 },
+                    { selector: '.baptism-text', delay: 4.2 },
+                    { selector: '.hero-date', delay: 4.6 },
+                    { selector: '.hero-teddy', delay: 5 },
+                    { selector: '.hero-cloud', delay: 5.5 },
+                    { selector: '.balloon', delay: 6 }
+                ];
+
+                entranceSequence.forEach(item => {
+                    const elements = document.querySelectorAll(item.selector);
+                    elements.forEach(el => {
+                        setTimeout(() => {
+                            el.classList.add('entrance-visible');
+                        }, item.delay * 1000);
+                    });
+                });
+            }, 1000);
+        });
+
+        document.getElementById('saveBtn')?.addEventListener('click', () => {
+            // Try to save the page as HTML
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Christening Invitation - Vinz Gadiel',
+                    text: 'You are invited to Vinz Gadiel\'s Christening!',
+                    url: window.location.href
+                }).catch(console.error);
+            } else {
+                // Fallback: copy URL to clipboard
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('Invitation link copied to clipboard!');
+                }).catch(() => {
+                    alert('Please save this page using your browser\'s save function.');
+                });
+            }
+        });
+
+        // Enhanced parallax effect for clouds and decorations
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
+            
+            // Background clouds parallax
             document.querySelectorAll('[data-parallax]').forEach(element => {
                 const speed = parseFloat(element.dataset.parallax);
                 element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+            
+            // Section-specific parallax
+            document.querySelectorAll('section').forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const sectionTop = rect.top;
+                const windowHeight = window.innerHeight;
+                
+                // Only apply parallax when section is in view
+                if (sectionTop < windowHeight && sectionTop > -windowHeight) {
+                    const parallaxOffset = (sectionTop / windowHeight) * 30;
+                    
+                    // Parallax for section backgrounds
+                    const bg = section.querySelector('.section-background');
+                    if (bg) {
+                        bg.style.transform = `translateY(${parallaxOffset}px)`;
+                    }
+                    
+                    // Parallax for clouds within sections
+                    const clouds = section.querySelectorAll('.welcome-cloud, .christening-cloud, .godparents-cloud, .message-cloud');
+                    clouds.forEach((cloud, index) => {
+                        const speed = 0.1 + (index * 0.05);
+                        cloud.style.transform = `translateY(${parallaxOffset * speed}px)`;
+                    });
+                    
+                    // Parallax for teddy bears
+                    const teddies = section.querySelectorAll('.christening-teddy, .parents-teddy, .godparents-teddy');
+                    teddies.forEach((teddy, index) => {
+                        const speed = 0.15 + (index * 0.05);
+                        teddy.style.transform = `translateY(${parallaxOffset * speed}px)`;
+                    });
+                    
+                    // Parallax for final section elements
+                    if (section.classList.contains('final-section')) {
+                        const finalClouds = section.querySelectorAll('.final-cloud');
+                        finalClouds.forEach((cloud, index) => {
+                            const speed = 0.08 + (index * 0.03);
+                            cloud.style.transform = `translateY(${parallaxOffset * speed}px)`;
+                        });
+                        
+                        const finalTeddy = section.querySelector('.final-teddy');
+                        if (finalTeddy) {
+                            finalTeddy.style.transform = `translateY(${parallaxOffset * 0.12}px)`;
+                        }
+                        
+                        // Don't apply parallax to balloons - let them float freely
+                        // The floating animation is more important for the finale effect
+                    }
+                }
             });
         });
     </script>
