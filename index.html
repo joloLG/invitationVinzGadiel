@@ -20,25 +20,57 @@
                 fullName: 'Vinz Gadiel'
             },
             event: {
-                date: 'Monday, October 05, 2026',
-                time: '11:00 AM',
-                church: 'St. Faustino Kowalska Parish',
-                churchAddress: 'Bagumbong Jala Jala Rizal',
-                reception: 'Cruz Residence',
-                receptionAddress: '02 JP Rizal Street, Bagumbong, Jala Jala, Rizal'
+                date: 'October 05 2026',
+                day: 'Monday',
+                time: '11 AM',
+                church: '[Church Name]',
+                churchAddress: '[Church Address]',
+                reception: '[House / Reception Name]',
+                receptionAddress: '[Reception Address]'
             },
             parents: {
-                father: 'Vinro Cedrix Gracilla Cuevas ',
-                mother: 'Geneline Escarmoza Cruz'
+                father: '[Father\'s Name]',
+                mother: '[Mother\'s Name]'
             },
-            godparents: {
-                godfather: '[Godfather\'s Name]',
-                godmother: '[Godmother\'s Name]'
+            location: {
+                church: '[Church Name]',
+                house: '[House / Reception Name]'
             },
-            contact: {
-                rsvpDate: '[RSVP Date]',
-                phone: '[Phone Number]',
-                email: '[Email Address]'
+            healthProtocols: {
+                kiss: {
+                    title: 'Please Do Not Kiss Baby\'s Face',
+                    message: 'Please avoid kissing the baby\'s face. Let\'s help protect our little one from unwanted germs.'
+                },
+                smoke: {
+                    title: 'No Smoking or Vaping',
+                    message: 'For baby\'s comfort and safety, please keep the celebration smoke-free and avoid smoking or vaping near the baby.'
+                },
+                sanitize: {
+                    title: 'Please Sanitize Your Hands',
+                    message: 'Please sanitize your hands before touching or holding the baby. Thank you for helping us keep our little one safe.'
+                },
+                mask: {
+                    title: 'Please Wear a Face Mask',
+                    message: 'When needed, please wear a face mask when interacting closely with the baby. We truly appreciate your care and consideration.'
+                }
+            },
+            gifts: {
+                johnsons: {
+                    name: 'Johnsons Baby Bath Cleanser',
+                    description: 'A gentle baby bath cleanser for keeping our little one\'s bath time fresh, clean, and comfortable.'
+                },
+                unilove: {
+                    name: 'Unilove Baby Clothes Detergent',
+                    description: 'A baby-friendly laundry essential for keeping little clothes fresh and clean.'
+                },
+                wipes: {
+                    name: 'Poomsoft Unscented Wipes',
+                    description: 'Unscented wipes are a practical everyday essential for our little one.'
+                },
+                diaper: {
+                    name: 'Kukumi Diaper XL',
+                    description: 'Diapers are always a thoughtful and useful gift for our growing little one.'
+                }
             },
             designer: {
                 name: 'John Lloyd Gracilla'
@@ -126,8 +158,8 @@
             <h2 class="baby-name">Vinz Gadiel</h2>
             <p class="baptism-text">On the occasion of my Holy Baptism</p>
             <div class="hero-date">
-                <p class="date-text">Monday, October 05, 2026</p>
-                <p class="time-text">at 11:00 AM</p>
+                <p class="date-text">October 05 2026</p>
+                <p class="time-text">Monday @ 11 AM</p>
             </div>
         </div>
        
@@ -183,22 +215,75 @@
             <div class="event-details-card">
                 <div class="event-item">
                     <div class="event-label">DATE</div>
-                    <div class="event-value">Monday, October 05, 2026</div>
+                    <div class="event-value">October 05 2026</div>
                 </div>
                 
                 <div class="event-item">
                     <div class="event-label">TIME</div>
-                    <div class="event-value">11:00 AM</div>
+                    <div class="event-value">Monday @ 11 AM</div>
                 </div>
                 
                 <div class="event-item">
                     <div class="event-label">CHURCH</div>
-                    <div class="event-value">St. Faustino Kowalska Parish</div>
+                    <div class="event-value">[Church Name]</div>
                 </div>
                 
                 <div class="event-item">
                     <div class="event-label">RECEPTION</div>
-                    <div class="event-value">Cruz Residence</div>
+                    <div class="event-value">[House / Reception Name]</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Guide Section -->
+    <section class="location-guide-section animate-on-scroll" data-section="location">
+        <div class="section-background" aria-hidden="true">
+            <div class="location-cloud-layer">
+                <div class="location-cloud cloud-1">
+                    <img src="cloud1.png" alt="" role="presentation">
+                </div>
+                <div class="location-cloud cloud-2">
+                    <img src="cloud2.png" alt="" role="presentation">
+                </div>
+                <div class="location-cloud cloud-3">
+                    <img src="cloud3.png" alt="" role="presentation">
+                </div>
+            </div>
+            <div class="location-teddy">
+                <img src="teddy2.png" alt="" role="presentation">
+            </div>
+        </div>
+        <div class="section-content">
+            <h2 class="section-title">Location Guide</h2>
+            <p class="location-subtitle">Here is our little guide to help you find your way to the celebration.</p>
+            
+            <div class="location-journey">
+                <div class="location-stop church-stop">
+                    <div class="location-image">
+                        <img src="church.png" alt="Church location">
+                    </div>
+                    <h3 class="location-name">[Church Name]</h3>
+                </div>
+                
+                <div class="location-pathway">
+                    <div class="pathway-image">
+                        <img src="pathway.png" alt="Pathway from church to reception">
+                    </div>
+                    <div class="pathway-indicator"></div>
+                </div>
+                
+                <div class="location-event-info">
+                    <p class="event-date">October 05 2026</p>
+                    <p class="event-day">Monday</p>
+                    <p class="event-time">11 AM</p>
+                </div>
+                
+                <div class="location-stop house-stop">
+                    <div class="location-image">
+                        <img src="house.png" alt="Reception location">
+                    </div>
+                    <h3 class="location-name">[House / Reception Name]</h3>
                 </div>
             </div>
         </div>
@@ -225,39 +310,156 @@
         </div>
     </section>
 
-    <!-- Section 5: Godparents -->
-    <section class="godparents-section animate-on-scroll" data-section="godparents">
+    <!-- Health Protocols Section -->
+    <section class="health-protocols-section animate-on-scroll" data-section="health">
         <div class="section-background" aria-hidden="true">
-            <div class="godparents-cloud-layer">
-                <div class="godparents-cloud cloud-1">
+            <div class="health-cloud-layer">
+                <div class="health-cloud cloud-1">
                     <img src="cloud1.png" alt="" role="presentation">
                 </div>
-                <div class="godparents-cloud cloud-2">
+                <div class="health-cloud cloud-2">
                     <img src="cloud2.png" alt="" role="presentation">
                 </div>
-                <div class="godparents-cloud cloud-3">
-                    <img src="cloud3.png" alt="" role="presentation">
+            </div>
+            <div class="health-teddy">
+                <img src="teddy3.png" alt="" role="presentation">
+            </div>
+        </div>
+        <div class="section-content">
+            <h2 class="section-title">Health Protocols</h2>
+            <p class="health-intro">To help keep our little one safe and comfortable, we kindly ask our family and guests to observe these simple health protocols during the celebration. Your care and understanding mean so much to us.</p>
+            
+            <div class="health-cards">
+                <div class="health-card protocol-1">
+                    <div class="health-card-image">
+                        <img src="kiss.png" alt="No kissing baby's face">
+                    </div>
+                    <h3 class="health-card-title">Please Do Not Kiss Baby's Face</h3>
+                    <p class="health-card-message">Please avoid kissing the baby's face. Let's help protect our little one from unwanted germs.</p>
+                </div>
+                
+                <div class="health-card protocol-2">
+                    <div class="health-card-image">
+                        <img src="smoke.png" alt="No smoking or vaping">
+                    </div>
+                    <h3 class="health-card-title">No Smoking or Vaping</h3>
+                    <p class="health-card-message">For baby's comfort and safety, please keep the celebration smoke-free and avoid smoking or vaping near the baby.</p>
+                </div>
+                
+                <div class="health-card protocol-3">
+                    <div class="health-card-image">
+                        <img src="sanitize.png" alt="Sanitize hands">
+                    </div>
+                    <h3 class="health-card-title">Please Sanitize Your Hands</h3>
+                    <p class="health-card-message">Please sanitize your hands before touching or holding the baby. Thank you for helping us keep our little one safe.</p>
+                </div>
+                
+                <div class="health-card protocol-4">
+                    <div class="health-card-image">
+                        <img src="mask.png" alt="Wear face mask">
+                    </div>
+                    <h3 class="health-card-title">Please Wear a Face Mask</h3>
+                    <p class="health-card-message">When needed, please wear a face mask when interacting closely with the baby. We truly appreciate your care and consideration.</p>
                 </div>
             </div>
-            <div class="godparents-teddy teddy-left">
+        </div>
+    </section>
+
+    <!-- Gift Guide Section -->
+    <section class="gift-guide-section animate-on-scroll" data-section="gifts">
+        <div class="section-background" aria-hidden="true">
+            <div class="gift-cloud-layer">
+                <div class="gift-cloud cloud-1">
+                    <img src="cloud1.png" alt="" role="presentation">
+                </div>
+                <div class="gift-cloud cloud-2">
+                    <img src="cloud2.png" alt="" role="presentation">
+                </div>
+            </div>
+            <div class="gift-teddy">
                 <img src="teddy1.png" alt="" role="presentation">
             </div>
-            <div class="godparents-teddy teddy-right">
+        </div>
+        <div class="section-content">
+            <h2 class="section-title">Gift Guide</h2>
+            <p class="gift-intro">Your presence is already a wonderful gift to us. If you would like to bless our little one with something special, here are a few gift ideas that would be greatly appreciated.</p>
+            
+            <div class="gift-cards">
+                <div class="gift-card gift-1">
+                    <div class="gift-card-image">
+                        <img src="johnsons.png" alt="Johnsons Baby Bath Cleanser">
+                    </div>
+                    <h3 class="gift-card-title">Johnsons Baby Bath Cleanser</h3>
+                    <p class="gift-card-description">A gentle baby bath cleanser for keeping our little one's bath time fresh, clean, and comfortable.</p>
+                </div>
+                
+                <div class="gift-card gift-2">
+                    <div class="gift-card-image">
+                        <img src="unilove.png" alt="Unilove Baby Clothes Detergent">
+                    </div>
+                    <h3 class="gift-card-title">Unilove Baby Clothes Detergent</h3>
+                    <p class="gift-card-description">A baby-friendly laundry essential for keeping little clothes fresh and clean.</p>
+                </div>
+                
+                <div class="gift-card gift-3">
+                    <div class="gift-card-image">
+                        <img src="wipes.png" alt="Poomsoft Unscented Wipes">
+                    </div>
+                    <h3 class="gift-card-title">Poomsoft Unscented Wipes</h3>
+                    <p class="gift-card-description">Unscented wipes are a practical everyday essential for our little one.</p>
+                </div>
+                
+                <div class="gift-card gift-4">
+                    <div class="gift-card-image">
+                        <img src="diaper.png" alt="Kukumi Diaper XL">
+                    </div>
+                    <h3 class="gift-card-title">Kukumi Diaper XL</h3>
+                    <p class="gift-card-description">Diapers are always a thoughtful and useful gift for our growing little one.</p>
+                </div>
+            </div>
+            
+            <div class="monetary-gift">
+                <h3 class="monetary-title">OR MONETARY GIFT</h3>
+                <p class="monetary-subtitle">SCAN ME FOR MONETARY GIFT</p>
+                <div class="qr-container">
+                    <img src="qrgcash.png" alt="QR code for monetary gift" class="qr-code">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dress Code Section -->
+    <section class="dress-code-section animate-on-scroll" data-section="dresscode">
+        <div class="section-background" aria-hidden="true">
+            <div class="dress-cloud-layer">
+                <div class="dress-cloud cloud-1">
+                    <img src="cloud1.png" alt="" role="presentation">
+                </div>
+                <div class="dress-cloud cloud-2">
+                    <img src="cloud2.png" alt="" role="presentation">
+                </div>
+            </div>
+            <div class="dress-teddy">
                 <img src="teddy2.png" alt="" role="presentation">
             </div>
         </div>
         <div class="section-content">
-            <h2 class="section-title">Godparents</h2>
-            <div class="godparents-cards">
-                <div class="godparent-card">
-                    <div class="godparent-icon">✨</div>
-                    <h4>[Godfather's Name]</h4>
-                    <p>Godfather</p>
+            <h2 class="section-title">Dress Code</h2>
+            <p class="dress-intro">We would love for everyone to share in the joy of this special day. For a soft and heavenly celebration, we kindly suggest wearing colors within our chosen dress code palette.</p>
+            
+            <div class="dress-code-display">
+                <div class="dress-code-arrow">
+                    <span class="color-start">WHITE</span>
+                    <span class="arrow-icon">→</span>
+                    <span class="color-end">SKY BLUE</span>
                 </div>
-                <div class="godparent-card">
-                    <div class="godparent-icon">✨</div>
-                    <h4>[Godmother's Name]</h4>
-                    <p>Godmother</p>
+                
+                <div class="color-palette">
+                    <div class="palette-color color-white" data-color="white"></div>
+                    <div class="palette-color color-very-light" data-color="very-light"></div>
+                    <div class="palette-color color-baby" data-color="baby"></div>
+                    <div class="palette-color color-light" data-color="light"></div>
+                    <div class="palette-color color-sky" data-color="sky"></div>
                 </div>
             </div>
         </div>
@@ -427,10 +629,16 @@
                         animateChristeningSection(section);
                     } else if (sectionType === 'event') {
                         animateEventSection(section);
+                    } else if (sectionType === 'location') {
+                        animateLocationSection(section);
                     } else if (sectionType === 'parents') {
                         animateParentsSection(section);
-                    } else if (sectionType === 'godparents') {
-                        animateGodparentsSection(section);
+                    } else if (sectionType === 'health') {
+                        animateHealthSection(section);
+                    } else if (sectionType === 'gifts') {
+                        animateGiftSection(section);
+                    } else if (sectionType === 'dresscode') {
+                        animateDressCodeSection(section);
                     } else if (sectionType === 'message') {
                         animateMessageSection(section);
                     } else if (sectionType === 'final') {
@@ -488,20 +696,74 @@
             
             setTimeout(() => bg?.classList.add('visible'), 0);
             setTimeout(() => intro?.classList.add('visible'), 200);
-            setTimeout(() => father?.classList.add('visible'), 400);
-            setTimeout(() => ampersand?.classList.add('visible'), 600);
-            setTimeout(() => mother?.classList.add('visible'), 800);
+            setTimeout(() => father?.classList.add('visible'), 500);
+            setTimeout(() => ampersand?.classList.add('visible'), 700);
+            setTimeout(() => mother?.classList.add('visible'), 900);
         }
 
-        function animateGodparentsSection(section) {
+        function animateLocationSection(section) {
             const bg = section.querySelector('.section-background');
             const title = section.querySelector('.section-title');
-            const cards = section.querySelectorAll('.godparent-card');
+            const subtitle = section.querySelector('.location-subtitle');
+            const church = section.querySelector('.church-stop');
+            const pathway = section.querySelector('.location-pathway');
+            const eventInfo = section.querySelector('.location-event-info');
+            const house = section.querySelector('.house-stop');
             
             setTimeout(() => bg?.classList.add('visible'), 0);
             setTimeout(() => title?.classList.add('visible'), 300);
+            setTimeout(() => subtitle?.classList.add('visible'), 500);
+            setTimeout(() => church?.classList.add('visible'), 700);
+            setTimeout(() => pathway?.classList.add('visible'), 900);
+            setTimeout(() => eventInfo?.classList.add('visible'), 1100);
+            setTimeout(() => house?.classList.add('visible'), 1300);
+        }
+
+        function animateHealthSection(section) {
+            const bg = section.querySelector('.section-background');
+            const title = section.querySelector('.section-title');
+            const intro = section.querySelector('.health-intro');
+            const cards = section.querySelectorAll('.health-card');
+            
+            setTimeout(() => bg?.classList.add('visible'), 0);
+            setTimeout(() => title?.classList.add('visible'), 300);
+            setTimeout(() => intro?.classList.add('visible'), 500);
             cards.forEach((card, index) => {
-                setTimeout(() => card?.classList.add('visible'), 500 + (index * 200));
+                setTimeout(() => card?.classList.add('visible'), 700 + (index * 200));
+            });
+        }
+
+        function animateGiftSection(section) {
+            const bg = section.querySelector('.section-background');
+            const title = section.querySelector('.section-title');
+            const intro = section.querySelector('.gift-intro');
+            const cards = section.querySelectorAll('.gift-card');
+            const monetary = section.querySelector('.monetary-gift');
+            
+            setTimeout(() => bg?.classList.add('visible'), 0);
+            setTimeout(() => title?.classList.add('visible'), 300);
+            setTimeout(() => intro?.classList.add('visible'), 500);
+            cards.forEach((card, index) => {
+                setTimeout(() => card?.classList.add('visible'), 700 + (index * 150));
+            });
+            setTimeout(() => monetary?.classList.add('visible'), 1500);
+        }
+
+        function animateDressCodeSection(section) {
+            const bg = section.querySelector('.section-background');
+            const title = section.querySelector('.section-title');
+            const intro = section.querySelector('.dress-intro');
+            const arrow = section.querySelector('.dress-code-arrow');
+            const palette = section.querySelector('.color-palette');
+            const colors = section.querySelectorAll('.palette-color');
+            
+            setTimeout(() => bg?.classList.add('visible'), 0);
+            setTimeout(() => title?.classList.add('visible'), 300);
+            setTimeout(() => intro?.classList.add('visible'), 500);
+            setTimeout(() => arrow?.classList.add('visible'), 700);
+            setTimeout(() => palette?.classList.add('visible'), 900);
+            colors.forEach((color, index) => {
+                setTimeout(() => color?.classList.add('visible'), 1100 + (index * 150));
             });
         }
 
@@ -640,14 +902,14 @@
                     }
                     
                     // Parallax for clouds within sections
-                    const clouds = section.querySelectorAll('.welcome-cloud, .christening-cloud, .godparents-cloud, .message-cloud');
+                    const clouds = section.querySelectorAll('.welcome-cloud, .christening-cloud, .godparents-cloud, .message-cloud, .location-cloud, .health-cloud, .gift-cloud, .dress-cloud');
                     clouds.forEach((cloud, index) => {
                         const speed = 0.1 + (index * 0.05);
                         cloud.style.transform = `translateY(${parallaxOffset * speed}px)`;
                     });
                     
                     // Parallax for teddy bears
-                    const teddies = section.querySelectorAll('.christening-teddy, .parents-teddy, .godparents-teddy');
+                    const teddies = section.querySelectorAll('.christening-teddy, .parents-teddy, .godparents-teddy, .health-teddy, .gift-teddy, .dress-teddy, .location-teddy');
                     teddies.forEach((teddy, index) => {
                         const speed = 0.15 + (index * 0.05);
                         teddy.style.transform = `translateY(${parallaxOffset * speed}px)`;

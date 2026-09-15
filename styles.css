@@ -1236,14 +1236,96 @@ section {
 }
 
 /* ============================================
- GODPARENTS SECTION (NEW)
+ MESSAGE SECTION
  ============================================ */
 
-.godparents-section {
-    background: rgba(255, 255, 255, 0.4);
+.message-section {
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
 }
 
-.godparents-cloud-layer {
+.message-cloud {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 120px;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.message-section.visible .message-cloud {
+    opacity: 0.5;
+    transform: translateX(0);
+}
+
+.message-cloud img {
+    width: 100%;
+    height: auto;
+}
+
+.message-quote {
+    background: var(--white);
+    padding: var(--spacing-xl) var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    border-left: 4px solid var(--soft-gold);
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.message-quote.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.quote-mark {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--soft-gold);
+    line-height: 1;
+    opacity: 0.3;
+}
+
+.quote-start {
+    position: absolute;
+    top: -20px;
+    left: var(--spacing-md);
+}
+
+.quote-end {
+    position: absolute;
+    bottom: -40px;
+    right: var(--spacing-md);
+}
+
+.quote-text {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-medium);
+    margin: var(--spacing-lg) 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.quote-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+ LOCATION GUIDE SECTION
+ ============================================ */
+
+.location-guide-section {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(224, 248, 255, 0.6) 50%, rgba(176, 224, 230, 0.7) 100%);
+}
+
+.location-cloud-layer {
     position: absolute;
     top: 0;
     left: 0;
@@ -1251,19 +1333,19 @@ section {
     height: 100%;
 }
 
-.godparents-cloud {
+.location-cloud {
     position: absolute;
-    width: 100px;
+    width: 120px;
     height: auto;
     opacity: 0.4;
 }
 
-.godparents-cloud img {
+.location-cloud img {
     width: 100%;
     height: auto;
 }
 
-.godparents-cloud.cloud-1 {
+.location-cloud.cloud-1 {
     top: 10%;
     left: -10%;
     transform: translateX(-40px);
@@ -1271,12 +1353,12 @@ section {
     transition: opacity 2s ease-out, transform 2s ease-out;
 }
 
-.godparents-section.visible .godparents-cloud.cloud-1 {
+.location-guide-section.visible .location-cloud.cloud-1 {
     opacity: 0.4;
     transform: translateX(0);
 }
 
-.godparents-cloud.cloud-2 {
+.location-cloud.cloud-2 {
     top: 30%;
     right: -10%;
     transform: translateX(40px);
@@ -1284,12 +1366,12 @@ section {
     transition: opacity 2s ease-out, transform 2s ease-out;
 }
 
-.godparents-section.visible .godparents-cloud.cloud-2 {
+.location-guide-section.visible .location-cloud.cloud-2 {
     opacity: 0.4;
     transform: translateX(0);
 }
 
-.godparents-cloud.cloud-3 {
+.location-cloud.cloud-3 {
     bottom: 20%;
     left: 20%;
     transform: translateY(30px);
@@ -1297,95 +1379,720 @@ section {
     transition: opacity 2s ease-out, transform 2s ease-out;
 }
 
-.godparents-section.visible .godparents-cloud.cloud-3 {
+.location-guide-section.visible .location-cloud.cloud-3 {
     opacity: 0.4;
     transform: translateY(0);
 }
 
-.godparents-teddy {
+.location-teddy {
     position: absolute;
-    width: 70px;
-    opacity: 0.7;
+    right: 5%;
+    top: 40%;
+    width: 80px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
 }
 
-.godparents-teddy img {
+.location-guide-section.visible .location-teddy {
+    opacity: 0.7;
+    transform: translateY(0);
+}
+
+.location-teddy img {
     width: 100%;
     height: auto;
 }
 
-.godparents-teddy.teddy-left {
-    left: 5%;
-    top: 40%;
-    transform: translateX(-40px);
-    opacity: 0;
-    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
-}
-
-.godparents-section.visible .godparents-teddy.teddy-left {
-    opacity: 0.7;
-    transform: translateX(0);
-}
-
-.godparents-teddy.teddy-right {
-    right: 5%;
-    top: 50%;
-    transform: translateX(40px);
-    opacity: 0;
-    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
-}
-
-.godparents-section.visible .godparents-teddy.teddy-right {
-    opacity: 0.7;
-    transform: translateX(0);
-}
-
-.godparents-cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
-}
-
-.godparent-card {
-    background: var(--white);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-soft);
-    text-align: center;
-    border: 2px solid var(--soft-blue);
-    opacity: 0;
-    transform: translateY(30px) scale(0.9);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out, border-color 0.3s ease;
-}
-
-.godparent-card.visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-
-.godparent-card:hover {
-    border-color: var(--soft-gold);
-}
-
-.godparent-icon {
-    font-size: 1.5rem;
-    margin-bottom: var(--spacing-sm);
-}
-
-.godparent-card h4 {
+.location-subtitle {
     font-family: var(--font-serif);
     font-size: 1.1rem;
+    font-style: italic;
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-xl);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.location-guide-section.visible .location-subtitle {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.location-journey {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.location-stop {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.location-guide-section.visible .location-stop {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.location-image {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto var(--spacing-md);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.location-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.location-name {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
     font-weight: 600;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.location-pathway {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    height: 80px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.location-guide-section.visible .location-pathway {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pathway-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pathway-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.pathway-indicator {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--soft-gold);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    animation: pathwayTravel 3s ease-in-out infinite;
+}
+
+@keyframes pathwayTravel {
+    0% {
+        left: 0;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+.location-event-info {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    border: 2px solid var(--soft-blue);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.location-guide-section.visible .location-event-info {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.event-date {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--text-dark);
     margin-bottom: var(--spacing-xs);
 }
 
-.godparent-card p {
+.event-day {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-xs);
+}
+
+.event-time {
     font-family: var(--font-sans);
-    font-size: 0.85rem;
-    color: var(--text-light);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--soft-gold);
+    margin: 0;
+}
+
+/* ============================================
+ HEALTH PROTOCOLS SECTION
+ ============================================ */
+
+.health-protocols-section {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(240, 248, 255, 0.5) 50%, transparent 100%);
+}
+
+.health-cloud-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.health-cloud {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    opacity: 0.4;
+}
+
+.health-cloud img {
+    width: 100%;
+    height: auto;
+}
+
+.health-cloud.cloud-1 {
+    top: 15%;
+    left: -10%;
+    transform: translateX(-40px);
+    opacity: 0;
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.health-protocols-section.visible .health-cloud.cloud-1 {
+    opacity: 0.4;
+    transform: translateX(0);
+}
+
+.health-cloud.cloud-2 {
+    bottom: 20%;
+    right: -10%;
+    transform: translateX(40px);
+    opacity: 0;
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.health-protocols-section.visible .health-cloud.cloud-2 {
+    opacity: 0.4;
+    transform: translateX(0);
+}
+
+.health-teddy {
+    position: absolute;
+    left: 5%;
+    bottom: 10%;
+    width: 70px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.health-protocols-section.visible .health-teddy {
+    opacity: 0.7;
+    transform: translateY(0);
+}
+
+.health-teddy img {
+    width: 100%;
+    height: auto;
+}
+
+.health-intro {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-xl);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.health-protocols-section.visible .health-intro {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.health-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+.health-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-soft);
+    border: 2px solid var(--soft-blue);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.health-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    animation: healthCardFloat 4s ease-in-out infinite 1s;
+}
+
+@keyframes healthCardFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.health-card-image {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-md);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--pale-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.health-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: var(--spacing-sm);
+}
+
+.health-card-title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.health-card-message {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-medium);
+}
+
+/* ============================================
+ GIFT GUIDE SECTION
+ ============================================ */
+
+.gift-guide-section {
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, rgba(224, 248, 255, 0.6) 100%);
+}
+
+.gift-cloud-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.gift-cloud {
+    position: absolute;
+    width: 110px;
+    height: auto;
+    opacity: 0.4;
+}
+
+.gift-cloud img {
+    width: 100%;
+    height: auto;
+}
+
+.gift-cloud.cloud-1 {
+    top: 10%;
+    left: -10%;
+    transform: translateX(-40px);
+    opacity: 0;
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.gift-guide-section.visible .gift-cloud.cloud-1 {
+    opacity: 0.4;
+    transform: translateX(0);
+}
+
+.gift-cloud.cloud-2 {
+    bottom: 15%;
+    right: -10%;
+    transform: translateX(40px);
+    opacity: 0;
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.gift-guide-section.visible .gift-cloud.cloud-2 {
+    opacity: 0.4;
+    transform: translateX(0);
+}
+
+.gift-teddy {
+    position: absolute;
+    right: 5%;
+    top: 20%;
+    width: 75px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.gift-guide-section.visible .gift-teddy {
+    opacity: 0.7;
+    transform: translateY(0);
+}
+
+.gift-teddy img {
+    width: 100%;
+    height: auto;
+}
+
+.gift-intro {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-xl);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.gift-guide-section.visible .gift-intro {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gift-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xxl);
+}
+
+.gift-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-soft);
+    border: 2px solid var(--soft-blue);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.gift-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.gift-card-image {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto var(--spacing-md);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--pale-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gift-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: var(--spacing-sm);
+}
+
+.gift-card-title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.gift-card-description {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-medium);
+}
+
+.monetary-gift {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    border: 2px solid var(--soft-gold);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.monetary-gift.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.monetary-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.monetary-subtitle {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--soft-gold);
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.qr-container {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.qr-code {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ============================================
+ DRESS CODE SECTION
+ ============================================ */
+
+.dress-code-section {
+    background: linear-gradient(180deg, rgba(224, 248, 255, 0.6) 0%, rgba(176, 224, 230, 0.7) 50%, rgba(135, 206, 235, 0.8) 100%);
+}
+
+.dress-cloud-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.dress-cloud {
+    position: absolute;
+    width: 130px;
+    height: auto;
+    opacity: 0.4;
+}
+
+.dress-cloud img {
+    width: 100%;
+    height: auto;
+}
+
+.dress-cloud.cloud-1 {
+    top: 10%;
+    left: -10%;
+    transform: translateX(-40px);
+    opacity: 0;
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.dress-code-section.visible .dress-cloud.cloud-1 {
+    opacity: 0.4;
+    transform: translateX(0);
+}
+
+.dress-cloud.cloud-2 {
+    bottom: 15%;
+    right: -10%;
+    transform: translateX(40px);
+    opacity: 0;
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.dress-code-section.visible .dress-cloud.cloud-2 {
+    opacity: 0.4;
+    transform: translateX(0);
+}
+
+.dress-teddy {
+    position: absolute;
+    left: 5%;
+    top: 30%;
+    width: 85px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.dress-code-section.visible .dress-teddy {
+    opacity: 0.7;
+    transform: translateY(0);
+}
+
+.dress-teddy img {
+    width: 100%;
+    height: auto;
+}
+
+.dress-intro {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-xl);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.dress-code-section.visible .dress-intro {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dress-code-display {
+    text-align: center;
+}
+
+.dress-code-arrow {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-xl);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.dress-code-section.visible .dress-code-arrow {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.color-start {
+    color: var(--text-dark);
+}
+
+.arrow-icon {
+    color: var(--soft-gold);
+    margin: 0 var(--spacing-sm);
+}
+
+.color-end {
+    color: var(--sky-blue);
+}
+
+.color-palette {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.dress-code-section.visible .color-palette {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.palette-color {
+    width: 100%;
+    max-width: 200px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.palette-color.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.color-white {
+    background: var(--white);
+    border: 1px solid var(--text-light);
+}
+
+.color-very-light {
+    background: var(--pale-blue);
+}
+
+.color-baby {
+    background: var(--baby-blue);
+}
+
+.color-light {
+    background: var(--soft-blue);
+}
+
+.color-sky {
+    background: var(--sky-blue);
 }
 
 /* ============================================
@@ -2078,10 +2785,39 @@ section {
         max-width: 700px;
     }
     
-    .parents-grid,
-    .godparents-grid,
-    .gallery-grid {
-        grid-template-columns: repeat(4, 1fr);
+    .health-cards,
+    .gift-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .location-journey {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    
+    .location-pathway {
+        width: 100px;
+        height: 200px;
+    }
+    
+    .pathway-image {
+        flex-direction: column;
+    }
+    
+    .pathway-image img {
+        transform: rotate(90deg);
+    }
+    
+    .color-palette {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .palette-color {
+        width: 60px;
+        height: 60px;
+        max-width: none;
     }
     
     .teddy-decoration {
