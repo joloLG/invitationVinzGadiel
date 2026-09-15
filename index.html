@@ -550,12 +550,18 @@
         </div>
     </section>
 
+</html>
     <!-- Footer -->
     <footer class="footer">
         <p class="footer-text">Made with ❤️ for Vinz Gadiel</p>
         <p class="footer-text"><a href="https://www.facebook.com/share/1HDFiDevDR/" target="_blank">Designed by John Lloyd Gracilla © 2026</a></p>
     </footer>
 
+<audio id="backgroundMusic" loop preload="auto">
+        <source src="invitation.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio> 
+    
     <script>
         // Loading screen functionality
         window.addEventListener('load', () => {
@@ -566,6 +572,37 @@
                 }, 800);
             }
         });
+
+        const music = document.getElementById("backgroundMusic");
+
+        // Set volume
+        music.volume = 0.5;
+
+        // Try to automatically play the music when the website loads
+        window.addEventListener("load", () => {
+            music.play().catch(() => {
+                console.log("Autoplay blocked. Waiting for user interaction.");
+            });
+        });
+
+        // Fallback for Android/Chrome autoplay restrictions
+        const startMusic = () => {
+            music.play().catch(() => {
+                console.log("Music could not start yet.");
+            });
+
+            // Remove listeners after the first interaction
+            document.removeEventListener("click", startMusic);
+            document.removeEventListener("touchstart", startMusic);
+            document.removeEventListener("pointerdown", startMusic);
+            document.removeEventListener("scroll", startMusic);
+        };
+
+        document.addEventListener("click", startMusic);
+        document.addEventListener("touchstart", startMusic);
+        document.addEventListener("pointerdown", startMusic);
+        document.addEventListener("scroll", startMusic);
+    
 
         // Cinematic entrance sequence
         document.addEventListener('DOMContentLoaded', () => {
