@@ -289,26 +289,124 @@
         </div>
     </section>
 
-    <!-- Section 4: Parents -->
-    <section class="parents-section animate-on-scroll" data-section="parents">
-        <div class="section-background" aria-hidden="true">
-            <div class="parents-teddy">
-                <img src="teddy1.png" alt="" role="presentation">
+    <!-- Section 4:  -->
+    <!-- CAPTURED MOMENTS SECTION -->
+<section class="captured-section animate-on-scroll" data-section="captured-moments">
+
+    <!-- Decorative Background -->
+    <div class="captured-background" aria-hidden="true">
+
+        <!-- Clouds -->
+        <img src="cloud1.png" class="captured-cloud cloud-left" alt="" role="presentation">
+        <img src="cloud2.png" class="captured-cloud cloud-right" alt="" role="presentation">
+
+        <!-- Teddy Bears -->
+        <img src="teddy1.png" class="captured-teddy teddy-left" alt="" role="presentation">
+        <img src="teddy2.png" class="captured-teddy teddy-right" alt="" role="presentation">
+
+        <!-- Soft Decorative Glow -->
+        <div class="captured-glow"></div>
+
+    </div>
+
+    <div class="section-content captured-content">
+
+        <!-- Section Heading -->
+        <div class="captured-heading">
+
+            <span class="captured-small-title">
+                Little Memories
+            </span>
+
+            <h2 class="captured-title">
+                Captured Moments
+            </h2>
+
+            <div class="captured-divider">
+                <span></span>
+                <span class="divider-star">✦</span>
+                <span></span>
             </div>
+
+            <p class="captured-description">
+                BABY VINZ GADIEL
+            </p>
+
+            <p class="captured-subtitle">
+                A collection of sweet little moments
+                we will always treasure.
+            </p>
+
         </div>
-        <div class="section-content">
-            <p class="parents-intro">Together with our loving parents</p>
-            <div class="parents-display">
-                <div class="parent-name father-name">
-                    <h3>Vinro Cedrix Gracilla Cuevas</h3>
-                </div>
-                <div class="parent-ampersand">&</div>
-                <div class="parent-name mother-name">
-                    <h3>Geneline Escarmoza Cruz</h3>
+
+
+        <!-- Photo Gallery -->
+        <div class="captured-gallery">
+
+            <!-- Image 1 -->
+            <div class="captured-card captured-card-1">
+                <div class="captured-image-wrapper">
+                    <img
+                        src="captured1.png"
+                        alt="Baby Vinz Gadiel captured moment 1"
+                        loading="lazy"
+                    >
                 </div>
             </div>
+
+
+            <!-- Image 2 -->
+            <div class="captured-card captured-card-2">
+                <div class="captured-image-wrapper">
+                    <img
+                        src="captured2.png"
+                        alt="Baby Vinz Gadiel captured moment 2"
+                        loading="lazy"
+                    >
+                </div>
+            </div>
+
+
+            <!-- Image 3 -->
+            <div class="captured-card captured-card-3">
+                <div class="captured-image-wrapper">
+                    <img
+                        src="captured3.png"
+                        alt="Baby Vinz Gadiel captured moment 3"
+                        loading="lazy"
+                    >
+                </div>
+            </div>
+
+
+            <!-- Image 4 -->
+            <div class="captured-card captured-card-4">
+                <div class="captured-image-wrapper">
+                    <img
+                        src="captured4.png"
+                        alt="Baby Vinz Gadiel captured moment 4"
+                        loading="lazy"
+                    >
+                </div>
+            </div>
+
+
+            <!-- Image 5 - CENTERED -->
+            <div class="captured-card captured-card-5">
+                <div class="captured-image-wrapper">
+                    <img
+                        src="captured5.png"
+                        alt="Baby Vinz Gadiel captured moment 5"
+                        loading="lazy"
+                    >
+                </div>
+            </div>
+
         </div>
-    </section>
+
+    </div>
+
+</section>
 
     <!-- Health Protocols Section -->
     <section class="health-protocols-section animate-on-scroll" data-section="health">
@@ -563,17 +661,7 @@
     </audio> 
 
     <script>
-        // Loading screen functionality
-        window.addEventListener('load', () => {
-            const loadingScreen = document.getElementById('loadingScreen');
-            if (loadingScreen) {
-                setTimeout(() => {
-                    loadingScreen.classList.add('hidden');
-                }, 800);
-            }
-        });
-
-        const music = document.getElementById("backgroundMusic");
+         const music = document.getElementById("backgroundMusic");
 
         // Set volume
         music.volume = 0.5;
@@ -602,7 +690,54 @@
         document.addEventListener("touchstart", startMusic);
         document.addEventListener("pointerdown", startMusic);
         document.addEventListener("scroll", startMusic);
+        // Loading screen functionality
+        window.addEventListener('load', () => {
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen) {
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                }, 800);
+            }
+        });
     
+
+        /* =========================================================
+   CAPTURED MOMENTS — SCROLL REVEAL
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const capturedSection =
+        document.querySelector(".captured-section");
+
+    if (!capturedSection) return;
+
+
+    const observer = new IntersectionObserver(
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    capturedSection.classList.add("animate-in");
+
+                    observer.unobserve(capturedSection);
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+
+    observer.observe(capturedSection);
+
+});
+
 
         // Cinematic entrance sequence
         document.addEventListener('DOMContentLoaded', () => {
